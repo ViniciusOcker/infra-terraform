@@ -1,4 +1,4 @@
-# implentar
+# implementar
 
 > terraform apply
 > acessar pelo vs code com extenção remote ssh
