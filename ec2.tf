@@ -20,10 +20,10 @@ resource "aws_instance" "ec2-ansible" {
   vpc_security_group_ids = [aws_security_group.sg_acesso_ssh_publico.id, aws_security_group.sg_acesso_web.id]
 
   user_data = <<-EOF
-  #!/bin/bash
-  sudo apt update
-  sudo apt install software-properties-common -y
-  sudo add-apt-repository --yes --update ppa:ansible/ansible -y
-  sudo apt-get install ansible -y
+    #!/bin/bash
+    sudo apt update
+    sudo apt install software-properties-common -y
+    sudo add-apt-repository --yes --update ppa:ansible/ansible -y
+    sudo apt-get install ansible -y
   EOF
 }
