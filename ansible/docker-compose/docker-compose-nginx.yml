@@ -1,0 +1,15 @@
+version: '3'
+services:
+  httpd:
+    image: nginx
+    ports:
+    - 80:80
+    - 81:80
+    restart: always
+    deploy:
+      mode: global
+      replicas: 8
+      update_config:
+        parallelism: 2
+        delay: 10s
+        order: start-first

@@ -33,3 +33,29 @@ resource "aws_security_group" "sg_acesso_web" {
     "Name" = "${var.usuario}-sg_acesso_web"
   }
 }
+
+resource "aws_security_group" "sg_acesso_web_81" {
+  description = "liberta porta http para internet"
+  ingress {
+    from_port   = 81
+    to_port     = 81
+    protocol    = "tcp"
+    cidr_blocks = [var.ip_internet]
+  }
+  tags = {
+    "Name" = "${var.usuario}-sg_acesso_web"
+  }
+}
+
+resource "aws_security_group" "sg_acesso_docker" {
+  description = "liberta porta docker swarm"
+  ingress {
+    from_port   = 2377
+    to_port     = 2377
+    protocol    = "tcp"
+    cidr_blocks = [var.ip_internet]
+  }
+  tags = {
+    "Name" = "${var.usuario}-sg_acesso_web"
+  }
+}

@@ -1,6 +1,9 @@
-[grupo]
--ip- new_hostname=docker-picanha
--ip- new_hostname=docker-banana
+[docker_manager]
+docker1 ansible_host={{ip}} new_hostname=docker1
+docker2 ansible_host={{ip}} new_hostname=docker2
+[docker_worker]
+docker3 ansible_host={{ip}} new_hostname=docker3
+docker4 ansible_host={{ip}} new_hostname=docker4
 
 [all:vars]
 ansible_user=ubuntu
@@ -8,3 +11,4 @@ ansible_ssh_private_key_file=/home/ubuntu/.ssh/terraform-aws
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_common_args='-o StrictHostKeyChecking=accept-new'
 # ansible-playbook playbook.yml -i inventory
+# ansible -i inventory all -m ping

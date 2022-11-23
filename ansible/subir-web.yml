@@ -1,0 +1,11 @@
+- hosts: docker_manager
+  become: yes
+  tasks:
+    - name: transferir os arquivos docker-compose
+      copy:
+        src: '~/ansible/docker-compose'
+        dest: '~/'
+      when: "inventory_hostname == groups['docker_manager'][0]"
+    - name: subir o nginx
+      shell: docker stack deploy --compose-file ~/docker-compose/docker-compose-nginx.yml web
+      when: "inventory_hostname == groups['docker_manager'][0]"

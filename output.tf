@@ -1,4 +1,4 @@
-output "instancias-ec2" {
+output "instancias-ec2_docker" {
   value = aws_instance.ec2-server.*.public_ip
 }
 

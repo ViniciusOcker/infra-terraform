@@ -1,0 +1,13 @@
+---
+  - name: Configurando Managers
+    hosts: docker_manager
+
+    roles:
+     - manager
+    become: yes
+
+  - name: Configurando Workers
+    hosts: docker_worker
+    roles:
+     - worker
+    become: yes
